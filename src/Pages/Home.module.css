@@ -1,0 +1,43 @@
+.imgSlide>img{
+    display: flex;
+    height: 510px;
+}
+.all {
+  position: relative;
+}
+.title {
+  position: absolute;
+  top: 12rem;
+  font-size: 63px;
+  font-weight: bolder;
+  left: 2.95rem;
+  letter-spacing: 3px;
+  color: rgb(255, 255, 255);
+}
+.overview {
+  color: white;
+  position: absolute;
+  top: 24rem;
+  font-size: 16px;
+  width: 750px;
+  left: 20px;
+}
+.release {
+  position: absolute;
+  top:19rem;
+  color: white;
+  font-size: 1.85rem;
+  left: 3rem;
+}
+.vote{
+  position:absolute;
+  top:19.25rem;
+  color:white;
+  left:22rem;
+  font-size:1.85rem;
+}
+.sitara{
+  position:absolute;
+  top:0px;
+  left:2.55rem
+}
