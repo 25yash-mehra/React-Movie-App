@@ -1,11 +1,14 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import style from "./Home.module.css";
+import { Link } from "react-router-dom";
+
 function Home() {
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    const apiKey = "be31e27818cb198ac3de94964cd0297e";
+    const apiKey = "694bc001b3c9ead301efd735c70555f9";
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`;
     const options = {
       method: "GET",
@@ -13,51 +16,50 @@ function Home() {
         accept: "application/json",
       },
     };
+
     fetch(url, options)
-    .then((response) => response.json())
+      .then((response) => response.json())
       .then((item) => {
         console.log(item.results);
-        setData(item.results);
+        if (item.results) {
+          setData(item.results);
+        }
       })
       .catch((err) => console.error(err));
   }, []);
- 
 
   return (
     <>
-    {/* autoPlay="true" infiniteLoop="true" */}
-
-    
-      <Carousel>
-        {data.map((entry, index) => {
-          return (
-            <div key={index} className={style.all}>
+      <Carousel autoPlay infiniteLoop>
+        {data.map((entry) => (
+          <Link key={entry.id} to={`/movies/${entry.id}`}>
+            <div className={style.all}>
               <div className={style.imgSlide}>
                 <img
                   src={`https://image.tmdb.org/t/p/original/${entry.backdrop_path}`}
-                  alt="movie"
+                  alt={entry.title}
                 />
               </div>
               <div className={style.content}>
-              <div className={style.vote}>
-                <p>{entry.vote_average}</p>
-                <div className={style.sitara}>
-                <i class="fa-solid fa-star"></i>
+                <div className={style.vote}>
+                  <p>{entry.vote_average}</p>
+                  <div className={style.sitara}>
+                    <i className="fa-solid fa-star"></i>
+                  </div>
+                </div>
+                <div className={style.release}>
+                  <p>{entry.release_date}</p>
+                </div>
+                <div className={style.title}>
+                  <p>{entry.title}</p>
+                </div>
+                <div className={style.overview}>
+                  <p>{entry.overview}</p>
                 </div>
               </div>
-              <div className={style.release}>
-              <p>{entry.release_date}</p>
-              </div>
-              <div className={style.title}>
-                <p>{entry.title}</p>
-              </div>
-              <div className={style.overview}>
-                <p>{entry.overview}</p>
-              </div>
-              </div>
             </div>
-          );
-        })}
+          </Link>
+        ))}
       </Carousel>
     </>
   );

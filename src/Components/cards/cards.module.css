@@ -1,0 +1,61 @@
+.cards {
+    width: 200px; /* Adjust width to make it more compact */
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    }
+   
+      
+    .cards:hover {
+        transform: scale(1.05);
+        }
+        
+        .poster {
+    position: relative;
+  }
+  
+  .poster img {
+    width: 100%;
+    height: 300px; /* Set a fixed height to maintain uniformity */
+    display: block;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .title {
+    font-size: 1rem; /* Smaller font size for a more compact look */
+    font-weight: bold;
+    padding: 10px;
+    color: #333;
+    text-align: center; /* Center-align the title */
+  }
+  
+  .description {
+    font-size: 0.9rem; /* Smaller font size for a more compact look */
+    padding: 0 10px;
+    color: #666;
+    height: 50px; /* Set a fixed height to maintain uniformity */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  }
+  
+  .release-date {
+    font-size: 0.8rem; /* Smaller font size for a more compact look */
+    padding: 10px;
+    color: #999;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+  
+  .navLink {
+    text-decoration: none;
+    color: inherit; /* Ensure link inherits text color */
+  }
+  
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards in the container */
+  }
+  

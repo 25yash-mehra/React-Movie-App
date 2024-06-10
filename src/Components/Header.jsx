@@ -16,9 +16,11 @@ function Header() {
           </NavLink>
           <nav className={style.navList}>
             <ul>
-              <NavLink to="/popular">Popular</NavLink>
-              <li>Top Rated</li>
-              <li>Upcoming</li>
+              <NavLink to="/movies/popular">Popular</NavLink>
+              {/* <li>Top Rated</li> */}
+              <NavLink to="/movies/top_rated">Top Rated</NavLink>
+              {/* <li>Upcoming</li> */}
+              <NavLink to="/movies/upcoming">Upcoming</NavLink>
             </ul>
           </nav>
         </div>
